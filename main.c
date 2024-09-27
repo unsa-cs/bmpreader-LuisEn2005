@@ -13,17 +13,20 @@ void display() {
 }
 
 int main(int argc, char *argv[]) {
-  for(int i = 0; i < argc; i++){
-    printf("argv[%d]: %s\n",i,argv[i]);
-  }
   char filename[256];
-
+  int i;
+  for(i = 0; argv[1][i]!= '\0';i++){
+    filename[i] = argv[1][i];
+  }
+  filename[i] = '\0';
   // Pedir al usuario el nombre del archivo BMP
-  printf("Ingrese el nombre del archivo BMP (con extensión): ");
-  scanf("%255s", filename);
+  // printf("Ingrese el nombre del archivo BMP (con extensión): ");
+  // scanf("%255s", filename);
 
   image = readBMP(filename);
+
   if (!image) return 1;
+  printf("Abriendo archivo %s\n",argv[1]);
 
   // Inicializar GLUT
   //argc = 1; // Necesario para evitar problemas con glutInit
