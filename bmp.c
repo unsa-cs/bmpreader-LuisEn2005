@@ -6,7 +6,8 @@ BMPImage* readBMP(const char *filename) {
   FILE *file = fopen(filename, "rb");
 
   if (!file) {
-    fprintf(stderr, "No se puede abrir el archivo %s\n", filename);
+    fprintf(stderr, "No se puede abrir el archivo %s o no existe\n", filename);
+    printf("Recuerde ingresarlo con la extensión .bmp\n");
     free(image);
     return NULL;
   }
